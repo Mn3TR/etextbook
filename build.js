@@ -270,7 +270,7 @@ function buildPage(title, content, sidebar, pageNav, textbookName, tocMode = fal
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${fullTitle}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <link rel="stylesheet" href="https://unpkg.zhimg.com/katex@0.16.10/dist/katex.min.css">
   <link rel="stylesheet" href="${stylePath}">
 </head>
 <body>
@@ -365,7 +365,7 @@ function buildHomePage(textbooks) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>数学电子课本集</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <link rel="stylesheet" href="https://unpkg.zhimg.com/katex@0.16.10/dist/katex.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
