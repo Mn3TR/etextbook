@@ -1,4 +1,7 @@
 node_modules/
 dist/
+.trash/
+.obsidian/
+.reasonix/
 .DS_Store
 *.log

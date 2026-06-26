@@ -63,11 +63,20 @@ function renderBlockMath(math) {
   }
 }
 
-function preprocessMarkdown(text) {
-  // 图片: ![[path]] → ![](path)
+/** 转义正则特殊字符 */
+function escapeRegex(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function preprocessMarkdown(text, textbookDir) {
+  // 图片: ![[path]] → ![](path)，并修正路径深度
   text = text.replace(/!\[\[(.+?)\]\]/g, (match, imgPath) => {
     const normalized = imgPath.replace(/\\/g, '/');
-    return `![${path.basename(normalized)}](${normalized})`;
+    // 去掉 asset/ 路径中的教材目录名前缀，因为每个教材的 asset 已独立复制到其目录下
+    const stripped = textbookDir
+      ? normalized.replace(new RegExp('^asset/' + escapeRegex(textbookDir) + '/'), 'asset/')
+      : normalized;
+    return `![${path.basename(normalized)}](${stripped})`;
   });
   // 块级公式 $$...$$ (先处理)
   text = text.replace(/\$\$([\s\S]+?)\$\$/g, (match, math) => {
@@ -408,9 +417,11 @@ function main() {
     if (!fs.existsSync(tbOutDir)) fs.mkdirSync(tbOutDir, { recursive: true });
 
     // 3a. 复制资源文件
-    const tbAssetDir = path.join(tbDir, 'asset');
-    if (fs.existsSync(tbAssetDir)) {
-      copyDirSync(tbAssetDir, path.join(tbOutDir, 'asset'));
+    // 源: asset/<教材名>/  ->  目标: dist/<教材名>/asset/
+    const rootAssetSrc = path.join('asset', tbDir);
+    const tbAssetDest = path.join(tbOutDir, 'asset');
+    if (fs.existsSync(rootAssetSrc)) {
+      copyDirSync(rootAssetSrc, tbAssetDest);
     }
 
     // 3b. 生成章节页面
@@ -418,7 +429,7 @@ function main() {
       for (const sec of ch.sections) {
         const mdPath = path.join(tbDir, ch.dirName, sec.file);
         const content = fs.readFileSync(mdPath, 'utf-8');
-        const processed = preprocessMarkdown(content);
+        const processed = preprocessMarkdown(content, tbDir);
         const bodyHtml = marked.parse(processed);
 
         const sidebar = buildSidebar(tbName, chapters, sec.outFile);
