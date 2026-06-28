@@ -11,14 +11,10 @@
             "id": "f2de4f3b26bcc96c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "数学必修一(高一)/E，三角函数/5.7三角函数的应用.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "5.7三角函数的应用"
+              "title": "新标签页"
             }
           }
         ]
@@ -194,8 +190,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "afe759f6e71e5e0d",
+  "active": "f2de4f3b26bcc96c",
   "lastOpenFiles": [
+    "数学必修一(高一)/E，三角函数/5.7三角函数的应用.md",
     "output/404.html",
     "output/index.html",
     "output/数学必修一(高一)/404.html",
@@ -206,7 +203,6 @@
     "output/数学必修一(高一)/E，三角函数_5.4三角函数的图像与性质.html",
     "output/数学必修一(高一)/E，三角函数_5.3诱导公式.html",
     "output/数学必修一(高一)/E，三角函数_5.2三角函数的概念.html",
-    "output/数学必修一(高一)/E，三角函数_5.1任意角与弧度制.html",
     "output/数学必修一(高一)/images/QQ20260625-223039.png",
     "output/数学必修一(高一)/images/QQ20260625-223039 1.png",
     "output/数学必修一(高一)/images/QQ20260625-20354.png",
@@ -218,7 +214,6 @@
     "output/数学必修一(高一)/images/正弦曲线.png",
     "output/数学必修一(高一)/images/余弦曲线.png",
     "数学必修一(高一)/E，三角函数/5.6函数 y=Asin(omegax+phi).md",
-    "数学必修一(高一)/E，三角函数/5.7三角函数的应用.md",
     "数学必修一(高一)/E，三角函数/5.5三角恒等变换.md",
     "数学必修一(高一)/E，三角函数/5.4三角函数的图像与性质.md",
     "数学必修一(高一)/D，指数函数和对数函数/4.5函数的应用（二）.md",
